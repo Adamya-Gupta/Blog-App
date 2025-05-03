@@ -1,0 +1,27 @@
+{
+  "name": "blog-app",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000B\u0000l\u0000o\u0000g\u0000-\u0000A\u0000p\u0000p\u0000\r\u0000 \u0000",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adamya-Gupta/Blog-App.git"
+  },
+  "author": "Adamya Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adamya-Gupta/Blog-App/issues"
+  },
+  "homepage": "https://github.com/Adamya-Gupta/Blog-App#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.1"
+  }
+}
