@@ -82,6 +82,26 @@ app.post('/post', isLoggedIn, async (req,res)=>{
     res.redirect("/profile")
 })
 
+app.get('/delete/:id', isLoggedIn, async (req, res) => {
+    try {
+        const post = await postModel.findById(req.params.id);
+        if (post.user.toString() !== req.user.userid) {
+            return res.status(403).send("Unauthorized");
+        }
+
+        await postModel.findByIdAndDelete(req.params.id);
+        await userModel.findByIdAndUpdate(req.user.userid, {
+            $pull: { posts: req.params.id }
+        });
+
+        res.redirect("/profile");
+    } catch (error) {
+        console.error("Error deleting post:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+
 app.post('/register',async (req,res)=>{
     let {email,password,username,name,age} = req.body
     let user = await userModel. findOne({email})
